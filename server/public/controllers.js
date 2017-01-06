@@ -20,6 +20,8 @@ function ComicController($scope, $http) {
             picture_url: $scope.item.picture_url,
             date_of_publication: $scope.item.date_of_publication,
             edition_number: $scope.item.edition_number
+            price: $scope.item.price
+
         });
         $http.post('/api/comics', $scope.item)
             .success(function(data) {

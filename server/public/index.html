@@ -32,6 +32,8 @@
       <br>
       <input type="text" ng-model="item.edition_number" placeholder="Edition Number" required>
       <br>
+      <input type="text" ng-model="item.price" placeholder="Price" required>
+      <br>
       
       <button ng-hide="edit" class="btn btn-success" ng-disabled="validarValoresPreenchidos.$invalid" ng-click="adicionaItem()">
         <i class="icon-plus icon-white"></i> add
@@ -62,10 +64,12 @@
             <td>{{ item.edition_number }}</td>
             <td>{{ item.price | currency:"$" }}</td>
             <td>
-              <button class="btn btn-warning btn-small" ng-click="editarItem($index)">
+              <button class="btn btn-warning btn-small" ng-click="editarItem($index)" style="width: 50px; height: 45px">
                 <i class="icon-pencil icon-white"></i> edit
               </button>
-              <button class="btn btn-danger btn-small" ng-click="deleteItem($index)">
+            </td>
+            <td>
+              <button class="btn btn-danger btn-small" ng-click="deleteItem($index)" style="width: 50px; height: 45px">
                 <i class="icon-trash icon-white"></i> delete
               </button>
             </td>
