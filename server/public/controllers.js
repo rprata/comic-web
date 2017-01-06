@@ -19,7 +19,7 @@ function ComicController($scope, $http) {
             short_description: $scope.item.short_description,
             picture_url: $scope.item.picture_url,
             date_of_publication: $scope.item.date_of_publication,
-            edition_number: $scope.item.edition_number
+            edition_number: $scope.item.edition_number,
             price: $scope.item.price
 
         });
