@@ -1,0 +1,84 @@
+<!doctype html>
+<html ng-app>
+<head>
+  <title>Comics Dashboard</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/toastr.css">
+  <link rel="stylesheet" href="css/application.css">
+</head>
+<body>
+  <div class="container" ng-controller="ComicController">
+
+    <div class="row">
+      <div class="page-header">
+        <div class="span9">
+          <h1>Comics Dashboard</h1>
+        </div>
+        <div class="span3">
+          <input type="search" ng-model="search" placeholder="Find by...">
+        </div>
+      </div>
+    </div>
+
+    <form class="form-group" name="validarValoresPreenchidos">
+      <input type="text" ng-model="item.title" placeholder="Title" required>
+      <br>
+      <input type="text" ng-model="item.short_description" placeholder="Short Description" required>
+      <br>
+      <input type="text" ng-model="item.picture_url" placeholder="Picture URL" required>
+      <br>
+      <input type="date" ng-model="item.date_of_publication" placeholder="Date of Publication" required>
+      <br>
+      <input type="text" ng-model="item.edition_number" placeholder="Edition Number" required>
+      <br>
+      
+      <button ng-hide="edit" class="btn btn-success" ng-disabled="validarValoresPreenchidos.$invalid" ng-click="adicionaItem()">
+        <i class="icon-plus icon-white"></i> add
+      </button>
+      <button ng-show="edit" class="btn btn-success" ng-disabled="validarValoresPreenchidos.$invalid" ng-click="applyChanges()">
+        <i class="icon-ok icon-white"></i> save
+      </button>
+    </form>
+
+    <div class="row">
+      <table id="comics-list" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Short Description</th>
+            <th>Date of Publication</th>
+            <th>Edition Number</th>
+            <th>price<th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in itens | filter:search">
+            <td><img src="{{ item.picture_url }}" style="width: 70px; height: 70px"></td>
+            <td><strong>{{ item.title }}</strong></td>
+            <td>{{ item.short_description }}</td>
+            <td>{{ item.date_of_publication | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ item.edition_number }}</td>
+            <td>{{ item.price | currency:"$" }}</td>
+            <td>
+              <button class="btn btn-warning btn-small" ng-click="editarItem($index)">
+                <i class="icon-pencil icon-white"></i> edit
+              </button>
+              <button class="btn btn-danger btn-small" ng-click="deleteItem($index)">
+                <i class="icon-trash icon-white"></i> delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/angular.min.js"></script>
+  <script src="lib/toastr.min.js"></script>
+  <script src="controllers.js"></script>
+</body>
+</html>
+
+
