@@ -6,7 +6,7 @@ CRUD Example using angularjs and node
 * [Android SDK and Android Studio](https://developer.android.com/)
 
 ## Installation
-Follow the instructions for server side:
+#### Follow the instructions for server side:
 ```sh
 $ cd comics-app
 $ cd server
@@ -17,11 +17,6 @@ $ npm start
 The application will be running in port 8080: 
 * localhost.com.br:8080/index - Dashboard (frontend app)
 
-In case of cross compilation:
-```sh
-$ cd ibutterfree
-$ mkdir build
-$ cmake CMakeLists.txt -Bbuild -DCMAKE_TOOLCHAIN_FILE=toolchains/<toolchain_file>.cmake
-$ cd build
-$ make
-```
+
+#### Follow the instructions for mobile side:
+After install Android SDK and Android Studio, import this project. Run in Emulator or Android device. If you run in Android Device, set the IP in variable "SERVER" on Android Application source code (Comics.java)
