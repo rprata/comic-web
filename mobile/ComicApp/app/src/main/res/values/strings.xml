@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">A Comic Shop</string>
+    <string name="action_settings">About</string>
+    <string name="splash_title">A Comic Shop</string>
+    <string name="comic_title">Comic Title</string>
+</resources>
